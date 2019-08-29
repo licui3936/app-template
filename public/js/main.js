@@ -17,13 +17,13 @@ async function init() {
     const win = await fin.Window.getCurrent();
 
     const ofVersion = document.querySelector('#of-version');
-    ofVersion.innerText = await fin.System.getVersion();
+    //ofVersion.innerText = await fin.System.getVersion();
     const version = await fin.System.getVersion();
 
     // Define a template
-    const myTemplate = (version) => html`<p> ${version}</p>`;
+    const myTemplate = (version) => html`<span> ${version}</span>`;
     // Render the template to the document
-    render(myTemplate(version), document.body);
+    render(myTemplate(version), ofVersion);
 
     //Only launch new windows from the main window.
     if (win.identity.name === app.identity.uuid) {
@@ -40,3 +40,34 @@ async function init() {
         });
     }
 }
+
+class OpenFinButton extends HTMLElement {
+    constructor() {
+        super();
+        // below two lines required
+        //this.render = this.render.bind(this);
+        //this.createChildWin = this.createChildWin.bind(this);
+        this.render();
+    }
+    render() {
+        const btnTemplate = html`
+          <button>Hello</button>
+        `;
+        render(btnTemplate, this);
+    }
+/*
+    async createChildWin() {
+        const childName = `child-window-${Date.now()}`;
+        const winOption = {
+            name: childName,
+            defaultWidth: 300,
+            defaultHeight: 300,
+            url: location.href,
+            frame: true,
+            autoShow: true
+        };
+        await fin.Window.create(winOption);
+    }*/
+}
+
+customElements.define('openfin-button', OpenFinButton);
