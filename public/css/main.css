@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Akkurat Pro';
-    src: url('/assets/lineto-akkurat-pro-regular.woff2') format('woff2');
+    src: url('/public/assets/lineto-akkurat-pro-regular.woff2') format('woff2');
     font-style: normal;
     font-weight: 400;
 }

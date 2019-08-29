@@ -3,14 +3,14 @@ const path = require('path');
 const { launch, connect } = require('hadouken-js-adapter');
 
 const serverParams = {
-    root: path.resolve('public'),
+    root: path.resolve('./'),
     port: 5555,
     open: false,
     logLevel: 2
 };
 
 //To Launch the OpenFin Application we need a manifestUrl.
-const manifestUrl = `http://localhost:${serverParams.port}/app.json`;
+const manifestUrl = `http://localhost:${serverParams.port}/public/app.json`;
 
 //Start the server server
 liveServer.start(serverParams).on('listening', async () => {

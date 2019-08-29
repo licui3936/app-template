@@ -4,7 +4,8 @@
   "devDependencies": {
     "@types/openfin": "latest",
     "hadouken-js-adapter": "latest",
-    "live-server": "latest"
+    "live-server": "latest",
+    "lit-html": "latest"
   },
   "license": "Apache-2.0"
 }

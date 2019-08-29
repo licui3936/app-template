@@ -1,4 +1,6 @@
-// uncomment line below to register offline cache service worker 
+import { html, render } from '../../node_modules/lit-html/lit-html.js';
+
+// uncomment line below to register offline cache service worker
 // navigator.serviceWorker.register('../serviceworker.js');
 
 if (typeof fin !== 'undefined') {
@@ -16,6 +18,12 @@ async function init() {
 
     const ofVersion = document.querySelector('#of-version');
     ofVersion.innerText = await fin.System.getVersion();
+    const version = await fin.System.getVersion();
+
+    // Define a template
+    const myTemplate = (version) => html`<p> ${version}</p>`;
+    // Render the template to the document
+    render(myTemplate(version), document.body);
 
     //Only launch new windows from the main window.
     if (win.identity.name === app.identity.uuid) {
