@@ -44,30 +44,30 @@ async function init() {
 class OpenFinButton extends HTMLElement {
     constructor() {
         super();
-        // below two lines required
+        // below two lines required?
         //this.render = this.render.bind(this);
         //this.createChildWin = this.createChildWin.bind(this);
         this.render();
     }
     render() {
         const btnTemplate = html`
-          <button>Hello</button>
+          <button @click="${this.createChildWin}">Create Window</button>
         `;
         render(btnTemplate, this);
     }
-/*
+
     async createChildWin() {
         const childName = `child-window-${Date.now()}`;
         const winOption = {
             name: childName,
             defaultWidth: 300,
             defaultHeight: 300,
-            url: location.href,
+            url: 'http://example.com',
             frame: true,
             autoShow: true
         };
         await fin.Window.create(winOption);
-    }*/
+    }
 }
 
 customElements.define('openfin-button', OpenFinButton);
